@@ -80,9 +80,9 @@ def process_and_aggregate_data(df: pd.DataFrame, target_station: str) -> pd.Data
     # 3. 彙總資料到站點層級
     print(f"\n步驟 3/4: 彙總 '{target_station}' 的進出站資料...")
     # 計算每個站在每個小時的總進站人次
-    df_entries = df.groupby(['時間戳', '進站'])['人次'].sum().rename('進站人次')
+    df_entries = df.groupby(['時間戳', '進站'], observed=False)['人次'].sum().rename('進站人次')
     # 計算每個站在每個小時的總出站人次
-    df_exits = df.groupby(['時間戳', '出站'])['人次'].sum().rename('出站人次')
+    df_exits = df.groupby(['時間戳', '出站'], observed=False)['人次'].sum().rename('出站人次')
     
     # 篩選出目標站點的資料
     station_entries = df_entries.loc[(slice(None), target_station),].reset_index(level='進站', drop=True)
