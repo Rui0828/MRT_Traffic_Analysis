@@ -39,7 +39,7 @@ This project applies deep learning techniques to analyze Taipei Metro's Origin-D
 ### Setup
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rui0828/MRT_Traffic_Analysis.git
 cd MRT_Traffic_Analysis
 ```
 
